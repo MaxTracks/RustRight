@@ -12,10 +12,14 @@ function install_startup_script () {
 
 # install oxide
 function install_oxide () {
-	echo "asdf"
-	# TODO: download oxide
-	# TODO: extract oxide
+	curdir = $PWD
+	cd ~/.steam/steamcmd/rust
+	# download oxide
+	wget https://github.com/OxideMod/Oxide/releases/download/latest/Oxide-Rust/Oxide-Rust.zip
+	# extract oxide
+	unzip Oxide-Rust.zip
 	# TODO: get plugins?
+	cd $curdir
 }
 
 # start the server
@@ -32,6 +36,9 @@ sudo apt install -y steamcmd
 
 install_rust_dedi
 install_startup_script
+
+# Install Oxide if desired
+#install_oxide
 
 # Change to the rust server directory and start for the first time
 cd ~/.steam/steamcmd/rust/
